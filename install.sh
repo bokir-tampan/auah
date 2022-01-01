@@ -8,4 +8,5 @@ wget /home/vps/public_html https://raw.githubusercontent.com/bokir-tampan/auah/m
 chmod +x addip
 chmod +x delip
 chmod +x xp-ip
+echo "0 0 * * * root xp-ip" >> /etc/crontab
 chmod +x /home/vps/public_html/shahwjusisjsnajakajannaiajanajam
